@@ -12,7 +12,9 @@ app.use(express.json());
 
 app.use("/admin", adminRouter)
 app.use("/user", userRouter)
-app.use('/', ()=>{console.log("Hello")})
+app.use('/', (req, res)=> res.status(201).json({
+  message: "Hello, world! "
+}))
 
 const user_mongo = process.env.USER_MONGO
 const mongo_Pass = process.env.MONGO_PASS
