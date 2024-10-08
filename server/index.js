@@ -12,11 +12,12 @@ app.use(express.json());
 
 app.use("/admin", adminRouter)
 app.use("/user", userRouter)
+app.use('/', ()=>{console.log("Hello")})
 
 const user_mongo = process.env.USER_MONGO
 const mongo_Pass = process.env.MONGO_PASS
 
 // Connect to MongoDB
-mongoose.connect(`mongodb+srv://${user_mongo}:${mongo_Pass}@cluster0.m7gnx.mongodb.net/`, { useNewUrlParser: true, useUnifiedTopology: true, dbName: "courses" });
+// mongoose.connect(`mongodb+srv://${user_mongo}:${mongo_Pass}@cluster0.m7gnx.mongodb.net/`, { useNewUrlParser: true, useUnifiedTopology: true, dbName: "courses" });
 
 app.listen(3000, () => console.log('Server running on port 3000'));
